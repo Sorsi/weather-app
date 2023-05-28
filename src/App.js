@@ -3,7 +3,7 @@ import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
 
-const API_KEY = 'bea5333b320643bb4ca57cd6ed1aabf4';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends React.Component {
 	state = {
@@ -22,7 +22,6 @@ class App extends React.Component {
 			`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&lang=hu&appid=${API_KEY}&units=metric`
 		);
 		const data = await api_call.json();
-		console.log('data --> ', data);
 
 		if (city && country) {
 			this.setState({
